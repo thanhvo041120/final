@@ -11,7 +11,6 @@ namespace assignmentfinalfix
     class Classroom
     {
         public List<Student> Students = new List<Student>();
-        public int NumberOfStudentActual;
         public void CreateInformationAStudent(string name  , string id, List<float> grades)
         {
             var student = new Student();   
