@@ -21,10 +21,10 @@ namespace assignmentfinalfix
             Students.Add(student);
         }
         //case 3
-        public Student FindByID(string id)
+        public Student FindStudentByID(string id)
         {
             Console.Clear();
-            if (IsIdExist(id,Students) == false) return null;
+            if (IsIdExist(id) == false) return null;
             else
             {
                 foreach (Student item in Students)
@@ -35,16 +35,16 @@ namespace assignmentfinalfix
             }
             return null;
         }
-        public bool IsIdExist(string id,List<Student> students)
+        public bool IsIdExist(string id)
         {
-            var student = students.SingleOrDefault(s => string.Compare(s.Id, id, true) == 0);
+            var student = Students.SingleOrDefault(s => string.Compare(s.Id, id, true) == 0);
             if (student == null) return false;
             else return true;
         }
         //case5
         public bool DeleteStudentById(string id)
         {
-            if (IsIdExist(id, Students) == false)
+            if (IsIdExist(id) == false)
             {
                 return true;
             }
@@ -59,9 +59,9 @@ namespace assignmentfinalfix
             }
         }
         //case 6
-        public Student ChangeNameById(string id,string name,List<float> grades)
+        public Student ChangeInformationOfAStudentById(string id,string name,List<float> grades)
         {
-            if (IsIdExist(id,Students) == false) return null;
+            if (IsIdExist(id) == false) return null;
             else
             {
                 foreach(Student item in Students)
@@ -77,7 +77,7 @@ namespace assignmentfinalfix
             return null;
         }
         //case 7
-        public float FindStudentsHaveHighestAverageGrade()
+        public float FindHighestAverageGrade()
         {
             float highestGrade;
             List<float> AverageGradeTemp = new List<float>();
@@ -90,18 +90,29 @@ namespace assignmentfinalfix
             return highestGrade;
         }
         //case 8
-        public Student FindStudentsHaveFailGrade()
+        public List<Student> FindStudentsHaveFailGrade()
         {
+            List<Student> studentsfailed = new List<Student>();
             foreach (Student item in Students)
             {
                 float AverageGrade = item.CalculateAverageGrade();
                 if (AverageGrade < 5)
                 {
-                    return item;
+                    studentsfailed.Add(item);
+                    return studentsfailed;
                 }
                 else return null;
             }
             return null;
+        }
+        public int CheckStudentExist()
+        {
+            int isStudentExist = Students.Count;
+            if (isStudentExist == 0)
+            {
+                return 0;
+            }
+            else return isStudentExist;
         }
     }
 }

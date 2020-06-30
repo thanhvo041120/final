@@ -28,8 +28,8 @@ namespace assignmentfinalfix
         }       
         public void HeaderOfTableOfInformation()
         {
-            Console.WriteLine("|------------------Show information of Students-------------------|");
-            Console.WriteLine("|{0,-20}|{1,-20}|{2,-23}|", "Name", "ID","Grades");
+            Console.WriteLine("|-------------------Show information of Students-------------------|");
+            Console.WriteLine("|{0,-20}|{1,-20}|{2,-24}|", "Name", "ID","Grades");
         }
         public void ShowInformationOfAllStudent(List<Student> students)
         {
@@ -66,11 +66,11 @@ namespace assignmentfinalfix
                 {
                     HeaderOfTableOfInformation();
                     item.ReturnInformationOfAStudent();
-                    Console.WriteLine("Hightest average Grade is: " + highestAverageGrade);
+                    Console.WriteLine("|Hightest average Grade is: " + highestAverageGrade);
                 }
             }
         }
-        public void ShowStudentsFailed(Student student)
+        public void ShowStudentsFailed(List<Student> student)
         {
             if(student==null)
             {
@@ -79,7 +79,8 @@ namespace assignmentfinalfix
             else
             {
                 HeaderOfTableOfInformation();
-                student.ReturnInformationOfAStudent();
+                foreach(Student item in student)
+                item.ReturnInformationOfAStudent();
             }
         }
         public void ShowAverageOfEachStudent(List<Student> students)
@@ -88,7 +89,7 @@ namespace assignmentfinalfix
             {
                 HeaderOfTableOfInformation();
                 item.ReturnInformationOfAStudent();
-                item.CalculateAverageGrade();
+                Console.WriteLine("************************Average of " + item.Name + " is: " + item.CalculateAverageGrade()+"************************");
                 Console.Write("\n");
             }
         }

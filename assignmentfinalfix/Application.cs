@@ -45,7 +45,7 @@ namespace assignmentfinalfix
                         break;
                     case 2:
                         Console.Clear();
-                        isStudentExist = CheckStudentExist(Classes.Students.Count);
+                        isStudentExist = Classes.CheckStudentExist();
                         if (isStudentExist == 0)
                         {
                             UI.ShowIfNoStudent();
@@ -55,13 +55,13 @@ namespace assignmentfinalfix
                         break;
                     case 3:
                         Console.Clear();
-                        isStudentExist = CheckStudentExist(Classes.Students.Count);
+                        isStudentExist = Classes.CheckStudentExist();
                         if (isStudentExist == 0)
                         {
                             UI.ShowIfNoStudent();
                             break;
                         }
-                        else UI.ShowInformationOfStudentById(Classes.FindByID(enter.SetId()));
+                        else UI.ShowInformationOfStudentById(Classes.FindStudentByID(enter.SetId()));
                         break;
                     case 4:
                         Console.Clear();                        
@@ -69,7 +69,7 @@ namespace assignmentfinalfix
                         break;
                     case 5:
                         Console.Clear();
-                        isStudentExist = CheckStudentExist(Classes.Students.Count);
+                        isStudentExist = Classes.CheckStudentExist();
                         if (isStudentExist == 0)
                         {
                             UI.ShowIfNoStudent();
@@ -79,27 +79,27 @@ namespace assignmentfinalfix
                         break;
                     case 6:
                         Console.Clear();
-                        isStudentExist = CheckStudentExist(Classes.Students.Count);
+                        isStudentExist = Classes.CheckStudentExist();
                         if (isStudentExist == 0)
                         {
                             UI.ShowIfNoStudent();
                             break;
                         }
-                        else UI.ShowInformationOfStudentById(Classes.ChangeNameById(enter.SetId(),enter.SetName(),enter.SetGrade()));
+                        else UI.ShowInformationOfStudentById(Classes.ChangeInformationOfAStudentById(enter.SetId(),enter.SetName(),enter.SetGrade()));
                         break;
                     case 7:
                         Console.Clear();
-                        isStudentExist = CheckStudentExist(Classes.Students.Count);
+                        isStudentExist = Classes.CheckStudentExist();
                         if (isStudentExist == 0)
                         {
                             UI.ShowIfNoStudent();
                             break;
                         }
-                        else UI.ShowStudentsHaveHighestAverageGrade(Classes.FindStudentsHaveHighestAverageGrade(), Classes.Students);
+                        else UI.ShowStudentsHaveHighestAverageGrade(Classes.FindHighestAverageGrade(), Classes.Students);
                         break;
                     case 8:
                         Console.Clear();
-                        isStudentExist = CheckStudentExist(Classes.Students.Count);
+                        isStudentExist = Classes.CheckStudentExist();
                         if (isStudentExist == 0)
                         {
                             UI.ShowIfNoStudent();
@@ -109,7 +109,7 @@ namespace assignmentfinalfix
                         break;
                     case 9:
                         Console.Clear();
-                        isStudentExist = CheckStudentExist(Classes.Students.Count);
+                        isStudentExist = Classes.CheckStudentExist();
                         if (isStudentExist == 0)
                         {
                             UI.ShowIfNoStudent();
@@ -157,15 +157,7 @@ namespace assignmentfinalfix
                 }
             }
             return choiceToContinue;
-        }
-        public int CheckStudentExist(int isStudentExist)
-        {
-            if (isStudentExist == 0)
-            {
-                return 0;
-            }
-            else return isStudentExist;
-        }
+        }        
     }
 }
 
