@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace assignmentfinalfix
 {
@@ -35,23 +36,24 @@ namespace assignmentfinalfix
             }
             return Grades;
         }
-        public string CheckEnterId(List<Student> students)
+        public string CheckEnterId(List<Student>Students)
         {
-            var classes = new Classroom();
+            Student student;
             string id;
             do
             {
                 id = SetId();
+                student = Students.SingleOrDefault(s => string.Compare(s.Id, id, true) == 0);
                 if (id.Length > 9 || id.Length < 5)
                 {
                     Console.WriteLine("Enter again");
                 }
-                else if (classes.IsIdExist(id,students) == true)
+                else if (student != null)
                 {
                     Console.WriteLine("ID existed");
                     Console.WriteLine("Enter again");
                 }
-            } while (id.Length > 9 || id.Length < 5 || classes.IsIdExist(id,students) == true);
+            } while (id.Length > 9 || id.Length < 5 || student != null);
             return id;
         }
         public string EnterNumberOfStudent()
