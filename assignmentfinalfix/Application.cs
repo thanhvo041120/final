@@ -36,8 +36,8 @@ namespace assignmentfinalfix
                             numberOfStudents = enter.EnterNumberOfStudent();
                             isTrueOrFalse = int.TryParse(numberOfStudents, out numberOfStudent);
                         } while (isTrueOrFalse == false);
-                        Classes.NumberOfStudentActual = numberOfStudent + Classes.Students.Count;
-                        for (var i = Classes.Students.Count; i < Classes.NumberOfStudentActual; i++)
+                        int NumberOfStudentActual = numberOfStudent + Classes.Students.Count;
+                        for (var i = Classes.Students.Count; i < NumberOfStudentActual; i++)
                         {
                             Console.Clear();
                             Classes.CreateInformationAStudent(enter.SetName(), enter.CheckEnterId(Classes.Students), enter.SetGrade());
