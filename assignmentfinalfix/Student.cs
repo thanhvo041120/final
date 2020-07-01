@@ -31,5 +31,6 @@ namespace assignmentfinalfix
             }
             Console.Write("{0}\n","|");
         }
+        
     }
 }

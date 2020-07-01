@@ -95,14 +95,13 @@ namespace assignmentfinalfix
             foreach (Student item in Students)
             {
                 float averageGrade = item.CalculateAverageGrade();
-                if (averageGrade < 5)
+                if (averageGrade < 5.0)
                 {
                     studentsfailed.Add(item);
-                    return studentsfailed;
+                    
                 }
-                else return null;
             }
-            return null;
+            return studentsfailed;
         }
         public int CheckStudentExist()
         {
