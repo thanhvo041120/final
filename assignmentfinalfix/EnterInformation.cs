@@ -82,6 +82,8 @@ namespace assignmentfinalfix
             bool isGradeCorrect;
             float grade;
             isGradeCorrect = float.TryParse(grades, out grade);
+            float decimalOfGrade = grade %10;
+            string decimalToString = (decimalOfGrade).ToString();
             if (isGradeCorrect==false)
             {
                 Console.WriteLine("Enter again");
@@ -92,6 +94,11 @@ namespace assignmentfinalfix
                      Console.WriteLine("Enter again");
                      return -1;
                  }
+            else if (decimalToString.Length>5)            
+                {
+                    Console.WriteLine("Enter again");
+                    return -1;
+                }            
             return grade;
         }
         public string CheckNameEntered()

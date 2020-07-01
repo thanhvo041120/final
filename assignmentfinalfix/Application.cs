@@ -10,7 +10,7 @@ namespace assignmentfinalfix
         {
             Classroom Classes = new Classroom();
             UserInterface UI = new UserInterface();
-            char askToContinue;
+            string askToContinue;
             var enter = new EnterInformation();
             int optionItem;
             int isStudentExist;
@@ -34,8 +34,12 @@ namespace assignmentfinalfix
                         do
                         {
                             Console.Clear();
-                            numberOfStudentToString = enter.CheckNumberOfStudent();
+                            numberOfStudentToString = enter.CheckNumberOfStudent();                            
                             isTrueOrFalse = uint.TryParse(numberOfStudentToString, out numberOfStudent);
+                            if (isTrueOrFalse==false)
+                            {
+                                Console.WriteLine("Invalid input");
+                            }
                         } while (isTrueOrFalse == false);
                         uint numberOfStudentActual = numberOfStudent + numberStudentInList;
                         for (var i = numberStudentInList; i < numberOfStudentActual; i++)
@@ -122,7 +126,7 @@ namespace assignmentfinalfix
                     default: Console.Clear(); Console.WriteLine("ERROR"); break;
                 }
                 askToContinue = CheckToContinue(optionItem);
-            } while (optionItem != 0 && askToContinue == 'y');
+            } while (optionItem != 0 && askToContinue == "y");
         }
         public int CheckAndReturn(string inputOfUser)
         {
@@ -146,23 +150,27 @@ namespace assignmentfinalfix
             }           
            
         }
-        public char CheckToContinue(int optionItem)
+        public string CheckToContinue(int optionItem)
         {
-            char choiceToContinue = 'y';
+            string choiceToContinue = "y";
             if (optionItem != 0)
             {
                 Console.Write("Finish\nDo you want to continue?[y/n]: ");
-                choiceToContinue = char.Parse(Console.ReadLine());
-                if (choiceToContinue == 'n')
+                choiceToContinue = Console.ReadLine();
+                switch (choiceToContinue)
                 {
-                    Console.Clear();
-                    Console.Write("DONE");
-                    return choiceToContinue;
-                }
-                else
-                {
-                    Console.Clear();
-                    return choiceToContinue;
+                    case "y":
+                        Console.Clear();
+                        return choiceToContinue;
+                    case "n":
+                        Console.Clear();
+                        Console.Write("DONE");
+                        return choiceToContinue;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("ERROR");
+                        CheckToContinue(optionItem);
+                        break;
                 }
             }
             return choiceToContinue;

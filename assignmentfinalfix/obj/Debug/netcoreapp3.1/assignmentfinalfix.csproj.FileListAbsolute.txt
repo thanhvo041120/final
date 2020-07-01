@@ -4,7 +4,6 @@ A:\ASM\finalfix\assignmentfinalfix\bin\Debug\netcoreapp3.1\assignmentfinalfix.ru
 A:\ASM\finalfix\assignmentfinalfix\bin\Debug\netcoreapp3.1\assignmentfinalfix.runtimeconfig.dev.json
 A:\ASM\finalfix\assignmentfinalfix\bin\Debug\netcoreapp3.1\assignmentfinalfix.dll
 A:\ASM\finalfix\assignmentfinalfix\bin\Debug\netcoreapp3.1\assignmentfinalfix.pdb
-A:\ASM\finalfix\assignmentfinalfix\obj\Debug\netcoreapp3.1\assignmentfinalfix.csprojAssemblyReference.cache
 A:\ASM\finalfix\assignmentfinalfix\obj\Debug\netcoreapp3.1\assignmentfinalfix.AssemblyInfoInputs.cache
 A:\ASM\finalfix\assignmentfinalfix\obj\Debug\netcoreapp3.1\assignmentfinalfix.AssemblyInfo.cs
 A:\ASM\finalfix\assignmentfinalfix\obj\Debug\netcoreapp3.1\assignmentfinalfix.csproj.CoreCompileInputs.cache

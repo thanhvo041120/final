@@ -79,8 +79,10 @@ namespace assignmentfinalfix
             else
             {
                 HeaderOfTableOfInformation();
-                foreach(Student item in student)
-                item.ReturnInformationOfAStudent();
+                foreach (Student item in student)
+                {
+                    item.ReturnInformationOfAStudent();
+                }
             }
         }
         public void ShowAverageOfEachStudent(List<Student> students)
