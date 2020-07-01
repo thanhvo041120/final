@@ -27,20 +27,21 @@ namespace assignmentfinalfix
                 {
                     case 1:
                         Console.Clear();
-                        string numberOfStudents;
-                        int numberOfStudent;
+                        string numberOfStudentToString;
+                        uint numberOfStudent;
+                        uint numberStudentInList = uint.Parse(Classes.Students.Count.ToString());
                         bool isTrueOrFalse;
                         do
                         {
                             Console.Clear();
-                            numberOfStudents = enter.EnterNumberOfStudent();
-                            isTrueOrFalse = int.TryParse(numberOfStudents, out numberOfStudent);
+                            numberOfStudentToString = enter.CheckNumberOfStudent();
+                            isTrueOrFalse = uint.TryParse(numberOfStudentToString, out numberOfStudent);
                         } while (isTrueOrFalse == false);
-                        int NumberOfStudentActual = numberOfStudent + Classes.Students.Count;
-                        for (var i = Classes.Students.Count; i < NumberOfStudentActual; i++)
+                        uint numberOfStudentActual = numberOfStudent + numberStudentInList;
+                        for (var i = numberStudentInList; i < numberOfStudentActual; i++)
                         {
                             Console.Clear();
-                            Classes.CreateInformationAStudent(enter.SetName(), enter.CheckEnterId(Classes.Students), enter.SetGrade());
+                            Classes.CreateInformationAStudent(enter.CheckNameEntered(), enter.CheckEnterId(Classes.Students), enter.SetGrade());
                         }
                         break;
                     case 2:
@@ -61,11 +62,11 @@ namespace assignmentfinalfix
                             UI.ShowIfNoStudent();
                             break;
                         }
-                        else UI.ShowInformationOfStudentById(Classes.FindStudentByID(enter.SetId()));
+                        else UI.ShowInformationOfStudentById(Classes.FindStudentByID(enter.CheckIdEntered()));
                         break;
                     case 4:
                         Console.Clear();                        
-                        Classes.CreateInformationAStudent(enter.SetName(), enter.CheckEnterId(Classes.Students),enter.SetGrade());                           
+                        Classes.CreateInformationAStudent(enter.CheckNameEntered(), enter.CheckEnterId(Classes.Students),enter.SetGrade());                           
                         break;
                     case 5:
                         Console.Clear();
@@ -75,7 +76,7 @@ namespace assignmentfinalfix
                             UI.ShowIfNoStudent();
                             break;
                         }
-                        else UI.DeleteOrNot(Classes.DeleteStudentById(enter.SetId()));
+                        else UI.DeletedOrNot(Classes.DeleteStudentById(enter.CheckIdEntered()));
                         break;
                     case 6:
                         Console.Clear();
@@ -85,7 +86,7 @@ namespace assignmentfinalfix
                             UI.ShowIfNoStudent();
                             break;
                         }
-                        else UI.ShowInformationOfStudentById(Classes.ChangeInformationOfAStudentById(enter.SetId(),enter.SetName(),enter.SetGrade()));
+                        else UI.ShowInformationOfStudentById(Classes.ChangeInformationOfAStudentById(enter.CheckIdEntered(), enter.CheckNameEntered(), enter.SetGrade()));
                         break;
                     case 7:
                         Console.Clear();
@@ -123,26 +124,34 @@ namespace assignmentfinalfix
                 askToContinue = CheckToContinue(optionItem);
             } while (optionItem != 0 && askToContinue == 'y');
         }
-        public int CheckAndReturn(string Variable)
+        public int CheckAndReturn(string inputOfUser)
         {
             int resultOfChecking;
             var UI = new UserInterface();
             bool isInputValid;
-            isInputValid = int.TryParse(Variable, out resultOfChecking);
+            isInputValid = int.TryParse(inputOfUser, out resultOfChecking);
             if (isInputValid == true)
-                return resultOfChecking;
+            {
+                if (resultOfChecking < 0)
+                {
+                    Console.Write("Enter again: ");
+                    return -1;
+                }
+                else return resultOfChecking;
+            }
             else
             {
-                Console.WriteLine("Enter again");
+                Console.Write("Enter again: ");
                 return -1;
-            }
+            }           
+           
         }
         public char CheckToContinue(int optionItem)
         {
             char choiceToContinue = 'y';
             if (optionItem != 0)
             {
-                Console.Write("Finish\nDo you want to continue?[y/n]");
+                Console.Write("Finish\nDo you want to continue?[y/n]: ");
                 choiceToContinue = char.Parse(Console.ReadLine());
                 if (choiceToContinue == 'n')
                 {

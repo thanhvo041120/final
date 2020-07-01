@@ -79,13 +79,13 @@ namespace assignmentfinalfix
         public float FindHighestAverageGrade()
         {
             float highestGrade;
-            List<float> AverageGradeTemp = new List<float>();
+            List<float> AverageGradeContain = new List<float>();
             foreach (Student item in Students)
             {
-                AverageGradeTemp.Add(item.CalculateAverageGrade());
+                AverageGradeContain.Add(item.CalculateAverageGrade());
             }
-            AverageGradeTemp.Sort();
-            highestGrade = AverageGradeTemp[AverageGradeTemp.Count - 1];
+            AverageGradeContain.Sort();
+            highestGrade = AverageGradeContain[AverageGradeContain.Count - 1];
             return highestGrade;
         }
         //case 8
@@ -94,8 +94,8 @@ namespace assignmentfinalfix
             List<Student> studentsfailed = new List<Student>();
             foreach (Student item in Students)
             {
-                float AverageGrade = item.CalculateAverageGrade();
-                if (AverageGrade < 5)
+                float averageGrade = item.CalculateAverageGrade();
+                if (averageGrade < 5)
                 {
                     studentsfailed.Add(item);
                     return studentsfailed;
