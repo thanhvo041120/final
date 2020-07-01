@@ -24,7 +24,7 @@ namespace assignmentfinalfix
             Console.Write("\n*9:Calculate average grade of student  *");
             Console.Write("\n*0:Exit                                *\n");
             for (i = 1; i <= 40; i++) Console.Write("*");
-            Console.Write("\nEnter your choice (0--->8): ");
+            Console.Write("\nEnter your choice (0--->9): ");
         }       
         public void HeaderOfTableOfInformation()
         {
@@ -49,7 +49,7 @@ namespace assignmentfinalfix
                 student.ReturnInformationOfAStudent();
             }
         }
-        public void DeleteOrNot(bool variable)
+        public void DeletedOrNot(bool variable)
         {
             if (variable == true) Console.WriteLine("Don't have student");
             else Console.WriteLine("Deleted");

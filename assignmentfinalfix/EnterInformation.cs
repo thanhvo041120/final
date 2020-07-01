@@ -22,17 +22,19 @@ namespace assignmentfinalfix
         }
         public List<float> SetGrade()
         {
-            float checkGrade;
+            float resultOfCheckGrade;
+            string grades;
+            
             List<float> Grades = new List<float>();
             for (var i = 0; i < 2; i++)
             {
                 Console.Write("Grade " + (i + 1) + ": ");
                 do
                 {
-                    float grade = float.Parse(Console.ReadLine());
-                    checkGrade = CheckGrade(grade);
-                } while (checkGrade < 0);
-                Grades.Add(checkGrade);
+                    grades = Console.ReadLine();
+                    resultOfCheckGrade = CheckGrade(grades);
+                } while (resultOfCheckGrade < 0);
+                Grades.Add(resultOfCheckGrade);
             }
             return Grades;
         }
@@ -58,19 +60,57 @@ namespace assignmentfinalfix
         }
         public string EnterNumberOfStudent()
         {
-            Console.Write("Enter number of students: ");
-            string NumberOfStudentWantToAdd = Console.ReadLine();
-            return NumberOfStudentWantToAdd;
-        }        
-        public float CheckGrade(float grade)
+            Console.Write("Enter number of students (0--->150): ");
+            string numberOfStudentWantToAdd = Console.ReadLine();
+            return numberOfStudentWantToAdd;
+        }  
+        public string CheckNumberOfStudent()
         {
-            if(grade>10||grade<0)
+            string numberOfStudentWantToAdd;
+            do
+            {
+                numberOfStudentWantToAdd = EnterNumberOfStudent();
+                if(numberOfStudentWantToAdd.Length >= 3)
+                {
+                    Console.WriteLine("Invalid input");
+                }
+            } while (numberOfStudentWantToAdd.Length >= 3);
+            return numberOfStudentWantToAdd;
+        }
+        public float CheckGrade(string grades)
+        {
+            bool isGradeCorrect;
+            float grade;
+            isGradeCorrect = float.TryParse(grades, out grade);
+            if (isGradeCorrect==false)
             {
                 Console.WriteLine("Enter again");
                 return -1;
             }
+            else if (grade>10||grade<0)
+                 {
+                     Console.WriteLine("Enter again");
+                     return -1;
+                 }
             return grade;
         }
-        
+        public string CheckNameEntered()
+        {
+            string nameThatWantToCheck;
+            do
+            {
+                nameThatWantToCheck = SetName();
+            } while (nameThatWantToCheck == "");
+            return nameThatWantToCheck;
+        }
+        public string CheckIdEntered()
+        {
+            string idThatWantToCheck;
+            do
+            {
+                idThatWantToCheck = SetId();
+            } while (idThatWantToCheck == "");
+            return idThatWantToCheck;
+        }
     }
 }
