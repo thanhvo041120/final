@@ -10,3 +10,4 @@ A:\ASM\finalfix\assignmentfinalfix\obj\Debug\netcoreapp3.1\assignmentfinalfix.cs
 A:\ASM\finalfix\assignmentfinalfix\obj\Debug\netcoreapp3.1\assignmentfinalfix.dll
 A:\ASM\finalfix\assignmentfinalfix\obj\Debug\netcoreapp3.1\assignmentfinalfix.pdb
 A:\ASM\finalfix\assignmentfinalfix\obj\Debug\netcoreapp3.1\assignmentfinalfix.genruntimeconfig.cache
+A:\ASM\finalfix\assignmentfinalfix\obj\Debug\netcoreapp3.1\assignmentfinalfix.csprojAssemblyReference.cache
